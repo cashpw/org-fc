@@ -90,7 +90,12 @@ Used to generate absolute paths to the awk scripts.")
   :group 'org-fc)
 
 (defcustom org-fc-blocked-by-property "FC_BLOCKED_BY"
-  "Property used to store the cards creation time."
+  "Property used to store which cards are blocking this card."
+  :type 'string
+  :group 'org-fc)
+
+(defcustom org-fc-priority-property "FC_PRIORITY"
+  "Property used to store the card's priority."
   :type 'string
   :group 'org-fc)
 
@@ -603,6 +608,7 @@ use `(and (type double) (tag \"math\"))'."
       :filetitle (or (plist-get card :filetitle)
                      "")
       :blocked-by (plist-get card :blocked-by)
+      :priority (string-to-number (plist-get card :priority))
       :id (plist-get card :id)
       :inherited-tags (plist-get card :inherited-tags)
       :local-tags (plist-get card :local-tags)

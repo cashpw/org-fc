@@ -42,6 +42,11 @@
     :type list
     :custom (repeat string)
     :documentation "The IDs of cards which block this card.")
+   (priority
+    :initform 0
+    :initarg :priority
+    :type number
+    :documentation "How important the card is; higher number is more important.")
    (filetitle
     :initform ""
     :initarg :filetitle
