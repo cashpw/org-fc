@@ -104,6 +104,9 @@ Valid contexts:
         (org-fc-review-resume))
     (let* ((index (org-fc-index context))
            (cards (org-fc-index--to-cards index))
+           (cards (--filter
+                   (not (org-fc-card--is-blocked it))
+                   cards))
            (positions (org-fc-positions--filter-due
                        (org-fc-cards--to-positions cards)))
            (positions (if org-fc-shuffle-positions
