@@ -36,6 +36,11 @@
     :type list
     :custom (repeat integer)
     :documentation "The time at which this card was created.")
+   (priority
+    :initform 0
+    :initarg :priority
+    :type number
+    :documentation "How important the card is; higher number is more important.")
    (filetitle
     :initform ""
     :initarg :filetitle
@@ -88,7 +93,7 @@
     :type symbol
     :documentation "The org-fc-* card type (e.g. double or cloze).")))
 
-(cl-defmethod org-fc-card--to-positions ((card org-fc-card card))
+(cl-defmethod org-fc-card--to-positions ((card org-fc-card))
   "Return list of `org-fc-position' extracted from CARD."
   (mapcar
    (lambda (pos)

@@ -49,6 +49,7 @@ With the '-L' option, 'find' follows symlinks."
     ("type_property" . ,org-fc-type-property)
     ("cloze_type_property" . ,org-fc-type-cloze-type-property)
     ("created_property" . ,org-fc-created-property)
+    ("priority_property" . ,org-fc-priority-property)
     ("review_data_drawer" . ,org-fc-review-data-drawer)))
 
 (cl-defun org-fc-awk--command (file &optional &key variables input)

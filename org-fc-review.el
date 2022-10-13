@@ -108,7 +108,11 @@ Valid contexts:
                        (org-fc-cards--to-positions cards)))
            (positions (if org-fc-shuffle-positions
                           (org-fc-shuffle positions)
-                        positions)))
+                        positions))
+           (positions (--sort
+                       (> (oref (oref it card) priority)
+                          (oref (oref other card) priority))
+                       positions)))
       (if (null cards)
           (message "No cards due right now")
         (progn
@@ -164,6 +168,7 @@ If RESUMING is non-nil, some parts of the buffer setup are skipped."
                 (org-fc-indent)
                 ;; Make sure the headline the card is in is expanded
                 (org-reveal)
+                (redisplay t)
                 (org-fc-narrow)
                 (org-fc-hide-keyword-times)
                 (org-fc-hide-drawers)
