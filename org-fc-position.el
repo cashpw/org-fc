@@ -80,5 +80,6 @@
                               (oref (oref b card) id)))))
     (-distinct positions)))
 
+
 (provide 'org-fc-position)
 ;;; org-fc-position.el ends here
